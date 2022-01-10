@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+main{
+    margin-top: 10vh;
+    background-image: url('home.png');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+}
+
+main .myInfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 30vh;
+    text-shadow: 3px 5px 4px  black;
+}
+
+main .myInfo strong{
+    color: orange;
+}
+#skills{
+    color: white;
+    background-color: rgb(29, 29, 29);
+    width:100%;
+}
+.mySkills{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+    padding-bottom: 2vh;
+    color: orange;
+}
+.skillBox{
+    box-sizing: border-box;
+    float: left;
+    width: 40%;
+    padding-left: 5vw;
+    padding-bottom: 80px;
+    height: 500px;
+}
+.skillbox1{
+    float: left;
+    padding-right: 5vw;
+    padding-left: 12vw;
+    height: 500px;
+    background-color: rgb(29, 29, 29);
+}
+.bgBlack{
+    height: 500px;
+}
+.skillBox p{
+    font-weight: bolder;
+}
+.container1{
+    background-color: silver;
+}
+.skills{
+    text-align: right; 
+   font-weight: bolder;
+}
+.html{
+    animation: loadinghtml 2s 1s;
+}
+@keyframes loadinghtml {
+    from{
+        width: 0%;
+        background-color: red;
+    }
+    to{
+        width: 80%;
+        background-color: red;
+    }
+}
+.css{
+    animation: loadingcss 2s 2s;
+}
+@keyframes loadingcss {
+    from{
+        width: 0%;
+        background-color: dodgerblue;
+    }
+    to{
+        width: 70%;
+        background-color: dodgerblue;
+    }
+}
+.js{
+    animation: loadingjs 2s 3s;
+}
+@keyframes loadingjs {
+    from{
+        width: 0%;
+        background-color: yellow;
+    }
+    to{
+        width: 65%;
+        background-color: yellow;
+    }
+}
+.nodejs{
+    animation: loadingnodejs 2s 5s;
+}
+@keyframes loadingnodejs {
+    from{
+        width: 0%;
+        background-color: green;
+    }
+    to{
+        width: 60%;
+        background-color: green;
+    }
+}
+.mongodb{
+    animation: loadingmongo 2s 7s;
+}
+@keyframes loadingmongo {
+    from{
+        width: 0%;
+        background-color: rgb(0, 223, 0);
+    }
+    to{
+        width: 60%;
+        background-color: rgb(0, 223, 0);
+    }
+}
+ .html{width: 80%; background-color: red;}
+ .css {width: 70%; background-color: DodgerBlue;} 
+ .js {width: 65%; background-color: Yellow;}
+ .nodejs {width: 60%; background-color: green;}
+ .mongodb {width: 60%; background-color: rgb(0, 223, 0);}
+
+ .aboutus{
+     clear: both;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     padding-top: 2vh;
+     padding-bottom: 5vh;
+     background-color: rgb(29, 29, 29);
+     color: white;
+ }
+.right{
+    float: right;
+    padding-right: 18vw;
+}
+.left{
+    width: 60%;
+    padding-top: 10vh;
+    padding-left: 18vw;
+     background-color: rgb(29, 29, 29);
+     float: left;
+ }
+ footer{
+     background-color: rgb(26, 26, 26);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+ }
+
+ .contact{
+     background-color:rgb(29, 29, 29);
+     color: white;
+     padding-bottom: 5vh;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     align-items: center;
+ }
+ .contactBox{
+    width: 60%;
+    padding-left: 5vw;
+    padding-right: 3vh;
+     background-color: rgb(29, 29, 29);
+     float: left;
+    color: white;
+    padding-bottom: 10vh;
+ }
+
+ .contactDetails{
+     background-color: rgb(29, 29, 29);
+     color: white;
+     padding-right: 15vw;
+     padding-bottom: 8vh;
+     padding-top: 3.5vh;
+ }
+
+ .contactDetails .contactLink{
+     color: dodgerblue;
+ }
+ .contactDetails .contactLink:hover{
+     color: rgb(0, 99, 199);
+     font-size: 172%;
+ }
+
+
+ :root {
+    --animate-duration: 1.5s;
+  }
