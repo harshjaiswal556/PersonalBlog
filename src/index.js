@@ -1,8 +1,10 @@
 const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
+const nodemailer = require("nodemailer");
 const port = process.env.PORT || 5000;
 const app = express();
+
 require("./db/conn");
 const Message = require("./models/message")
 
@@ -12,6 +14,16 @@ app.set("views",templatePath);
 app.use(express.static(templatePath));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
+
+let myInfo = nodemailer.createTransport({
+    service:"gmail",
+    port:port,
+    auth:{
+        user:"hsjaiswal3110@gmail.com",
+        pass:"abc.123e"
+    }
+})
+
 app.get("/",(req,res)=>{
     res.render("index")
 });
@@ -22,6 +34,19 @@ app.post("/",async(req,res)=>{
                 email : req.body.myemail,
                 name: req.body.myname,
                 msg : req.body.sendmsg
+            })
+            let mailOptions={
+                from:"hsjaiswal3110@gmail.com",
+                to: req.body.myemail,
+                subject:"Message from harsh jaiswal",
+                text:`Hi ${req.body.myname}. Thank you for contacting Mr. Harsh Jaiswal. Your response have been submitted and soon you will get reply to your response in your mail id.`
+            }
+            myInfo.sendMail(mailOptions,function(err,info){
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("mail sent" + info.response)
+                }
             })
             const result = await sendMessage.save();
             res.status(201).render("index")
