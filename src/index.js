@@ -45,14 +45,13 @@ app.post("/",async(req,res)=>{
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log("mail sent" + info.response)
+                    res.status(200).send(info.response);
                 }
             })
             const result = await sendMessage.save();
             res.status(201).render("index")
     }catch(err){
         res.status(400).send(err);
-        console.log(req.body.Email)
     }
 })
 app.get("*",(req,res)=>{
