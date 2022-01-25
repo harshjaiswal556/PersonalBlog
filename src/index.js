@@ -20,7 +20,7 @@ let myInfo = nodemailer.createTransport({
     port:port,
     auth:{
         user:"hsjaiswal3110@gmail.com",
-        pass:"abc.123e"
+        pass:"Harsh@1234#"
     }
 })
 
