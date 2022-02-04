@@ -50,19 +50,50 @@ main .myInfo strong{
     color: orange;
 }
 .skillBox{
+    display: inline-flex;
     box-sizing: border-box;
-    float: left;
-    width: 40%;
+    width: 35vw;
     padding-left: 5vw;
     padding-bottom: 80px;
     height: 500px;
+        flex-direction: column;
 }
+
 .skillbox1{
-    float: left;
     padding-right: 5vw;
     padding-left: 12vw;
+    width: 60vw;
     height: 500px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
     background-color: rgb(29, 29, 29);
+}
+@media screen and (max-width:750px) {
+    .skillBox{
+        display: inline-flex;
+        box-sizing: border-box;
+        width: 80vw;
+        padding-left: 5vw;
+        padding-bottom: 80px;
+        height: 500px;
+            flex-direction: column;
+    }
+    .skillbox1{
+        padding-right: 5vw;
+        padding-left: 12vw;
+        width: 80vw;
+        height: 500px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        background-color: rgb(29, 29, 29);
+    }
+    .bgBlack{
+        height: 500px;
+    }
 }
 .bgBlack{
     height: 500px;
@@ -219,7 +250,3 @@ main .myInfo strong{
      font-size: 172%;
  }
 
-
- :root {
-    --animate-duration: 1.5s;
-  }

@@ -27,6 +27,9 @@ let myInfo = nodemailer.createTransport({
 app.get("/",(req,res)=>{
     res.render("index")
 });
+app.get("/certificate",(req,res)=>{
+    res.render("certificate")
+})
 app.post("/",async(req,res)=>{
 
     try{
