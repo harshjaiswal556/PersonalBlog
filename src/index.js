@@ -33,10 +33,12 @@ app.get("/certificate",(req,res)=>{
 app.post("/",async(req,res)=>{
 
     try{
+        const d= new Date();
             const sendMessage = new Message({
                 email : req.body.myemail,
                 name: req.body.myname,
-                msg : req.body.sendmsg
+                msg : req.body.sendmsg,
+                date : `${d.getTime()}`
             })
             let mailOptions={
                 from:"hsjaiswal3110@gmail.com",

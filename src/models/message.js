@@ -11,6 +11,10 @@ const messageSchema = new mongoose.Schema({
     msg : {
         type:String,
         required:true
+    },
+    date : {
+        type:Date,
+        required:true
     }
 })
 
