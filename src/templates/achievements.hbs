@@ -27,7 +27,13 @@
     flex-direction: row;
     justify-content: center;
   }
-
+  main{
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
   a {
     text-decoration: none;
     color: white;
@@ -36,12 +42,6 @@
   li {
     list-style: none;
     display: inline-flex;
-  }
-
-  .center {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   .card {
@@ -79,6 +79,7 @@
 
     </div>
   </nav>
+  <main>
   <div class="container my-3">
     <div class="card">
       <iframe src="HarshShahJaiswal.pdf" class="card-img-top" alt=""></iframe>
@@ -105,8 +106,16 @@
         <a href="problemSolving(Basic).png" class="btn btn-primary">View Certificate</a>
       </div>
     </div>
+    <div class="card">
+      <iframe src="Coursera.pdf" class="card-img-top" alt=""></iframe>
+      <div class="card-body">
+        <h5 class="card-title">Coursera</h5>
+        <p class="card-text"><strong>Backend development : </strong>This is the verified certificate of Backend development(Node.js, Express.js, MongoDB, Mongoose) from Coursera.</p>
+        <a href="problemSolving(Basic).png" class="btn btn-primary">View Certificate</a>
+      </div>
+    </div>
   </div>
-}
+  </main>
   <footer>
         <p>Created with ❤️ by Harsh Jaiswal</p>
     </footer>
