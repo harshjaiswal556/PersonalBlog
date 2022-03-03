@@ -203,3 +203,7 @@ a {
 ::placeholder {
     color: #b3b3b3
 }
+
+.tab{
+    cursor: pointer;
+}

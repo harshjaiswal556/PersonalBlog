@@ -29,6 +29,9 @@ app.get("/",(req,res)=>{
 });
 app.get("/achievements",(req,res)=>{
     res.render("achievements")
+});
+app.get("/join",(req,res)=>{
+    res.render("join");
 })
 app.post("/",async(req,res)=>{
 
