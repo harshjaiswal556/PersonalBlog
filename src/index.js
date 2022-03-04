@@ -7,6 +7,7 @@ const app = express();
 
 require("./db/conn");
 const Message = require("./models/message")
+const Join = require("./models/join");
 
 let templatePath = path.join(__dirname,"/templates");
 app.set("view engine","hbs");
@@ -58,6 +59,36 @@ app.post("/",async(req,res)=>{
             })
             const result = await sendMessage.save();
             res.status(201).render("index")
+    }catch(err){
+        res.status(400).send(err);
+    }
+})
+
+app.post("/join",(req,res)=>{
+    try{
+        const password = req.body.mypassword;
+        const confirmPassword = req.body.myconfirmpassword;
+        if(password === confirmPassword){
+            const d = new Date();
+            const register = new Join({
+                username : req.body.myusername,
+                password : req.body.mypassword,
+                confirmPassword : req.body.myconfirmpassword,
+                email : req.body.myemail,
+                date : `${d.getTime()}`
+            })
+            const result = register.save();
+            res.status(201).render("index")
+        }
+    }catch(err){
+        res.status(400).send(err);
+    }
+})
+
+app.post("/login",async(req,res)=>{
+    try{
+        const username = req.body.myUsername;
+        const password = req.body.myPassword;
     }catch(err){
         res.status(400).send(err);
     }
