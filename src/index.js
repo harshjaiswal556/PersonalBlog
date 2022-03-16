@@ -64,10 +64,12 @@ app.post("/",async(req,res)=>{
     }
 })
 
-app.post("/join",(req,res)=>{
+app.post("/join",async(req,res)=>{
     try{
         const password = req.body.mypassword;
         const confirmPassword = req.body.myconfirmpassword;
+        const username = req.body.myusername;
+        const User = await Join.findOne({username:username});
         if(password === confirmPassword){
             const d = new Date();
             const register = new Join({
@@ -77,8 +79,16 @@ app.post("/join",(req,res)=>{
                 email : req.body.myemail,
                 date : `${d.getTime()}`
             })
-            const result = register.save();
-            res.status(201).render("index")
+            if(User==null){
+                const result = register.save();
+                res.status(201).render("index")
+            }
+            else{
+                res.send("This username has been already taken")
+            }
+        }
+        else{
+            res.send("Password not matched")
         }
     }catch(err){
         res.status(400).send(err);
@@ -89,6 +99,16 @@ app.post("/login",async(req,res)=>{
     try{
         const username = req.body.myUsername;
         const password = req.body.myPassword;
+        const user = await Join.findOne({username:username})
+        if(!user){
+            res.send("Invalid Login Details");
+        }
+        else if(password===user.password){
+            res.render("courses")
+        }
+        else{
+            res.send("Invalid login details")
+        }
     }catch(err){
         res.status(400).send(err);
     }

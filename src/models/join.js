@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const joinSchema = new mongoose.Schema({
     username:{
         type:String,
-        unique:[true,"This username has been already taken by someone"],
-        required:true
+        required:true,
+        unique:[true,"This username has been already taken by someone"]
     },
     password:{
         type:String,
@@ -17,7 +17,7 @@ const joinSchema = new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:[true,"This email has been already registered"]
+        unique:[true,"This email has already been registered"]
     },
     date:{
         type:Date,
