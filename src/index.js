@@ -81,7 +81,7 @@ app.post("/join",async(req,res)=>{
             })
             if(User==null){
                 const result = register.save();
-                res.status(201).render("index")
+                res.status(201).render("courses")
             }
             else{
                 res.send("This username has been already taken")
