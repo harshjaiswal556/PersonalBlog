@@ -8,6 +8,7 @@
     "hbs": "^4.2.0",
     "mongoose": "^6.1.5",
     "nodemailer": "^6.7.2",
+    "nodemailer-express-handlebars": "^5.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {},

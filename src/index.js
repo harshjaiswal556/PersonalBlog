@@ -1,5 +1,6 @@
 const express = require("express");
-const hbs = require("hbs");
+// const hbs = require("hbs");
+const hbs = require('nodemailer-express-handlebars')
 const path = require("path");
 const nodemailer = require("nodemailer");
 const port = process.env.PORT || 5000;
@@ -25,6 +26,16 @@ let myInfo = nodemailer.createTransport({
     }
 })
 
+const handlebarOptions = {
+    viewEngine: {
+        partialsDir: path.resolve(templatePath),
+        defaultLayout: false,
+    },
+    viewPath: path.resolve(templatePath),
+};
+
+myInfo.use('compile',hbs(handlebarOptions))
+
 app.get("/",(req,res)=>{
     res.render("index")
 });
@@ -48,7 +59,10 @@ app.post("/",async(req,res)=>{
                 from:"hsjaiswal3110@gmail.com",
                 to: req.body.myemail,
                 subject:"Message from harsh jaiswal",
-                text:`Hi ${req.body.myname}. Thank you for contacting Mr. Harsh Jaiswal. Your response have been submitted and soon you will get reply to your response in your mail id.`
+                template: 'email',
+                context:{
+                    name:req.body.myname
+                }
             }
             myInfo.sendMail(mailOptions,function(err,info){
                 if (err) {
