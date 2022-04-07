@@ -9,6 +9,7 @@
     "mongoose": "^6.1.5",
     "nodemailer": "^6.7.2",
     "nodemailer-express-handlebars": "^5.0.0",
+    "nodemon": "^2.0.15",
     "path": "^0.12.7"
   },
   "devDependencies": {},

@@ -17,16 +17,16 @@ app.use(express.static(templatePath));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 
-let myInfo = require("../config")
+// let myInfo = require("../config")
 
-// let myInfo = nodemailer.createTransport({
-//     service:"gmail",
-//     port:port,
-//     auth:{
-//         user:<email id>,
-//         pass:<email id password>
-//     }
-// })
+let myInfo = nodemailer.createTransport({
+    service:"gmail",
+    port:port,
+    auth:{
+        user:"hsjaiswal3110@gmail.com",
+        pass:"Harsh.2003#"
+    }
+})
 
 
 const handlebarOptions = {
