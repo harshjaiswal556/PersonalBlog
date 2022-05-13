@@ -48,6 +48,12 @@ app.get("/achievements",(req,res)=>{
 app.get("/join",(req,res)=>{
     res.render("join");
 })
+app.get("/forgot",(req,res)=>{
+    res.render("forgot");
+})
+app.get("/set",(req,res)=>{
+    res.render("set");
+})
 app.post("/",async(req,res)=>{
 
     try{
@@ -129,6 +135,57 @@ app.post("/login",async(req,res)=>{
     }catch(err){
         res.status(400).send(err);
     }
+})
+
+app.post("/forgot",async(req,res)=>{
+    try{
+        const email = req.body.myEmail;
+        const user = await Join.findOne({email: email});
+        if(!user){
+            res.send("Email not registered");
+        }
+        else{
+            try{
+                let mailOptions = {
+                    from:"hsjaiswal3110@gmail.com",
+                    to:email,
+                    subject:"Password change",
+                    template:"password"
+                }
+                myInfo.sendMail(mailOptions, function(err,info){
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        res.status(200).send(info.response);
+                    }
+                });
+                res.render("index")
+            }catch(err){
+                res.status(400).send(err);
+            }
+        }
+    }catch(e){
+        res.status(400).send(e);
+    }
+})
+app.post("/set",async(req, res)=>{
+    const email = req.body.myEmail;
+        const user = await Join.findOne({email: email});
+        console.log(user);
+        if(!user){
+            res.send("Email not registered");
+        }
+        else{
+            const password = req.body.myPassword;
+                        var myquery = { email:email };
+                        var newvalues = { $set: { email: email, password: password, confirmPassword :password } };
+                        Join.updateOne(myquery, newvalues, function (err, res) {
+                            if (err) throw err;
+                        });
+
+                        res.status(201).render("index")
+        }
 })
 app.get("*",(req,res)=>{
     res.render("error404")
