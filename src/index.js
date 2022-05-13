@@ -28,7 +28,6 @@ let myInfo = require("../config")
 //     }
 // })
 
-
 const handlebarOptions = {
     viewEngine: {
         partialsDir: path.resolve(templatePath),
